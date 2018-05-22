@@ -1,0 +1,606 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D5A1F3F720B4CFF4009505BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A1F3F620B4CFF4009505BD /* AppDelegate.swift */; };
+		D5A1F3F920B4CFF4009505BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A1F3F820B4CFF4009505BD /* ViewController.swift */; };
+		D5A1F3FC20B4CFF4009505BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5A1F3FA20B4CFF4009505BD /* Main.storyboard */; };
+		D5A1F3FF20B4CFF4009505BD /* Maeen.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D5A1F3FD20B4CFF4009505BD /* Maeen.xcdatamodeld */; };
+		D5A1F40120B4CFF6009505BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5A1F40020B4CFF6009505BD /* Assets.xcassets */; };
+		D5A1F40420B4CFF6009505BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5A1F40220B4CFF6009505BD /* LaunchScreen.storyboard */; };
+		D5A1F40F20B4CFF6009505BD /* MaeenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A1F40E20B4CFF6009505BD /* MaeenTests.swift */; };
+		D5A1F41A20B4CFF6009505BD /* MaeenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A1F41920B4CFF6009505BD /* MaeenUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D5A1F40B20B4CFF6009505BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5A1F3EB20B4CFF4009505BD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5A1F3F220B4CFF4009505BD;
+			remoteInfo = Maeen;
+		};
+		D5A1F41620B4CFF6009505BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5A1F3EB20B4CFF4009505BD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5A1F3F220B4CFF4009505BD;
+			remoteInfo = Maeen;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D5A1F3F320B4CFF4009505BD /* Maeen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maeen.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5A1F3F620B4CFF4009505BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D5A1F3F820B4CFF4009505BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D5A1F3FB20B4CFF4009505BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D5A1F3FE20B4CFF4009505BD /* Maeen.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Maeen.xcdatamodel; sourceTree = "<group>"; };
+		D5A1F40020B4CFF6009505BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D5A1F40320B4CFF6009505BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D5A1F40520B4CFF6009505BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5A1F40A20B4CFF6009505BD /* MaeenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaeenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5A1F40E20B4CFF6009505BD /* MaeenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaeenTests.swift; sourceTree = "<group>"; };
+		D5A1F41020B4CFF6009505BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5A1F41520B4CFF6009505BD /* MaeenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaeenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5A1F41920B4CFF6009505BD /* MaeenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaeenUITests.swift; sourceTree = "<group>"; };
+		D5A1F41B20B4CFF7009505BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D5A1F3F020B4CFF4009505BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5A1F40720B4CFF6009505BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5A1F41220B4CFF6009505BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D5A1F3EA20B4CFF4009505BD = {
+			isa = PBXGroup;
+			children = (
+				D5A1F3F520B4CFF4009505BD /* Maeen */,
+				D5A1F40D20B4CFF6009505BD /* MaeenTests */,
+				D5A1F41820B4CFF6009505BD /* MaeenUITests */,
+				D5A1F3F420B4CFF4009505BD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D5A1F3F420B4CFF4009505BD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D5A1F3F320B4CFF4009505BD /* Maeen.app */,
+				D5A1F40A20B4CFF6009505BD /* MaeenTests.xctest */,
+				D5A1F41520B4CFF6009505BD /* MaeenUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D5A1F3F520B4CFF4009505BD /* Maeen */ = {
+			isa = PBXGroup;
+			children = (
+				D5A1F3F620B4CFF4009505BD /* AppDelegate.swift */,
+				D5A1F3F820B4CFF4009505BD /* ViewController.swift */,
+				D5A1F3FA20B4CFF4009505BD /* Main.storyboard */,
+				D5A1F40020B4CFF6009505BD /* Assets.xcassets */,
+				D5A1F40220B4CFF6009505BD /* LaunchScreen.storyboard */,
+				D5A1F40520B4CFF6009505BD /* Info.plist */,
+				D5A1F3FD20B4CFF4009505BD /* Maeen.xcdatamodeld */,
+			);
+			path = Maeen;
+			sourceTree = "<group>";
+		};
+		D5A1F40D20B4CFF6009505BD /* MaeenTests */ = {
+			isa = PBXGroup;
+			children = (
+				D5A1F40E20B4CFF6009505BD /* MaeenTests.swift */,
+				D5A1F41020B4CFF6009505BD /* Info.plist */,
+			);
+			path = MaeenTests;
+			sourceTree = "<group>";
+		};
+		D5A1F41820B4CFF6009505BD /* MaeenUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D5A1F41920B4CFF6009505BD /* MaeenUITests.swift */,
+				D5A1F41B20B4CFF7009505BD /* Info.plist */,
+			);
+			path = MaeenUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D5A1F3F220B4CFF4009505BD /* Maeen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5A1F41E20B4CFF7009505BD /* Build configuration list for PBXNativeTarget "Maeen" */;
+			buildPhases = (
+				D5A1F3EF20B4CFF4009505BD /* Sources */,
+				D5A1F3F020B4CFF4009505BD /* Frameworks */,
+				D5A1F3F120B4CFF4009505BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Maeen;
+			productName = Maeen;
+			productReference = D5A1F3F320B4CFF4009505BD /* Maeen.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D5A1F40920B4CFF6009505BD /* MaeenTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5A1F42120B4CFF7009505BD /* Build configuration list for PBXNativeTarget "MaeenTests" */;
+			buildPhases = (
+				D5A1F40620B4CFF6009505BD /* Sources */,
+				D5A1F40720B4CFF6009505BD /* Frameworks */,
+				D5A1F40820B4CFF6009505BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5A1F40C20B4CFF6009505BD /* PBXTargetDependency */,
+			);
+			name = MaeenTests;
+			productName = MaeenTests;
+			productReference = D5A1F40A20B4CFF6009505BD /* MaeenTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D5A1F41420B4CFF6009505BD /* MaeenUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5A1F42420B4CFF7009505BD /* Build configuration list for PBXNativeTarget "MaeenUITests" */;
+			buildPhases = (
+				D5A1F41120B4CFF6009505BD /* Sources */,
+				D5A1F41220B4CFF6009505BD /* Frameworks */,
+				D5A1F41320B4CFF6009505BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5A1F41720B4CFF6009505BD /* PBXTargetDependency */,
+			);
+			name = MaeenUITests;
+			productName = MaeenUITests;
+			productReference = D5A1F41520B4CFF6009505BD /* MaeenUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D5A1F3EB20B4CFF4009505BD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "yahya alshaar";
+				TargetAttributes = {
+					D5A1F3F220B4CFF4009505BD = {
+						CreatedOnToolsVersion = 9.3;
+					};
+					D5A1F40920B4CFF6009505BD = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = D5A1F3F220B4CFF4009505BD;
+					};
+					D5A1F41420B4CFF6009505BD = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = D5A1F3F220B4CFF4009505BD;
+					};
+				};
+			};
+			buildConfigurationList = D5A1F3EE20B4CFF4009505BD /* Build configuration list for PBXProject "Maeen" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D5A1F3EA20B4CFF4009505BD;
+			productRefGroup = D5A1F3F420B4CFF4009505BD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D5A1F3F220B4CFF4009505BD /* Maeen */,
+				D5A1F40920B4CFF6009505BD /* MaeenTests */,
+				D5A1F41420B4CFF6009505BD /* MaeenUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D5A1F3F120B4CFF4009505BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5A1F40420B4CFF6009505BD /* LaunchScreen.storyboard in Resources */,
+				D5A1F40120B4CFF6009505BD /* Assets.xcassets in Resources */,
+				D5A1F3FC20B4CFF4009505BD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5A1F40820B4CFF6009505BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5A1F41320B4CFF6009505BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D5A1F3EF20B4CFF4009505BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5A1F3F920B4CFF4009505BD /* ViewController.swift in Sources */,
+				D5A1F3FF20B4CFF4009505BD /* Maeen.xcdatamodeld in Sources */,
+				D5A1F3F720B4CFF4009505BD /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5A1F40620B4CFF6009505BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5A1F40F20B4CFF6009505BD /* MaeenTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5A1F41120B4CFF6009505BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5A1F41A20B4CFF6009505BD /* MaeenUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D5A1F40C20B4CFF6009505BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5A1F3F220B4CFF4009505BD /* Maeen */;
+			targetProxy = D5A1F40B20B4CFF6009505BD /* PBXContainerItemProxy */;
+		};
+		D5A1F41720B4CFF6009505BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5A1F3F220B4CFF4009505BD /* Maeen */;
+			targetProxy = D5A1F41620B4CFF6009505BD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D5A1F3FA20B4CFF4009505BD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D5A1F3FB20B4CFF4009505BD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D5A1F40220B4CFF6009505BD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D5A1F40320B4CFF6009505BD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D5A1F41C20B4CFF7009505BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D5A1F41D20B4CFF7009505BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D5A1F41F20B4CFF7009505BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N3UMJVYHGR;
+				INFOPLIST_FILE = Maeen/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yahya.Maeen;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D5A1F42020B4CFF7009505BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N3UMJVYHGR;
+				INFOPLIST_FILE = Maeen/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yahya.Maeen;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D5A1F42220B4CFF7009505BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N3UMJVYHGR;
+				INFOPLIST_FILE = MaeenTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yahya.MaeenTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Maeen.app/Maeen";
+			};
+			name = Debug;
+		};
+		D5A1F42320B4CFF7009505BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N3UMJVYHGR;
+				INFOPLIST_FILE = MaeenTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yahya.MaeenTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Maeen.app/Maeen";
+			};
+			name = Release;
+		};
+		D5A1F42520B4CFF7009505BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N3UMJVYHGR;
+				INFOPLIST_FILE = MaeenUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yahya.MaeenUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Maeen;
+			};
+			name = Debug;
+		};
+		D5A1F42620B4CFF7009505BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N3UMJVYHGR;
+				INFOPLIST_FILE = MaeenUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yahya.MaeenUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Maeen;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D5A1F3EE20B4CFF4009505BD /* Build configuration list for PBXProject "Maeen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5A1F41C20B4CFF7009505BD /* Debug */,
+				D5A1F41D20B4CFF7009505BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5A1F41E20B4CFF7009505BD /* Build configuration list for PBXNativeTarget "Maeen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5A1F41F20B4CFF7009505BD /* Debug */,
+				D5A1F42020B4CFF7009505BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5A1F42120B4CFF7009505BD /* Build configuration list for PBXNativeTarget "MaeenTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5A1F42220B4CFF7009505BD /* Debug */,
+				D5A1F42320B4CFF7009505BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5A1F42420B4CFF7009505BD /* Build configuration list for PBXNativeTarget "MaeenUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5A1F42520B4CFF7009505BD /* Debug */,
+				D5A1F42620B4CFF7009505BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D5A1F3FD20B4CFF4009505BD /* Maeen.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D5A1F3FE20B4CFF4009505BD /* Maeen.xcdatamodel */,
+			);
+			currentVersion = D5A1F3FE20B4CFF4009505BD /* Maeen.xcdatamodel */;
+			path = Maeen.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D5A1F3EB20B4CFF4009505BD /* Project object */;
+}
