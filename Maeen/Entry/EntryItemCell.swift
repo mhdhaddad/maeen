@@ -6,4 +6,9 @@
 //  Copyright © 2018 yahya alshaar. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class EntryItemCell: UITableViewCell {
+    var entry: EntryItem!
+    
+}

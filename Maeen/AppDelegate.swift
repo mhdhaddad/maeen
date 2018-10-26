@@ -1,3 +1,4 @@
+
 //
 //  AppDelegate.swift
 //  Maeen
@@ -16,7 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        if app.account.isGeust == true {
+            makeRoot(viewController: Navigation.welcome())
+        }else {
+            makeRoot(viewController: Navigation.home())
+        }
+        
+        
         return true
     }
 
@@ -89,5 +97,59 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+}
+extension AppDelegate {
+    func makeRoot(viewController: UIViewController) {
+        var isOnboardingContext = false
+        if (viewController.storyboard?.value(forKey: "name") as? String)?.lowercased() ?? "main" == "welcoming" {
+            isOnboardingContext = true
+        }
+        defineNavigationBarStyle(isOnboardingContext: isOnboardingContext)
+        
+        window?.rootViewController = viewController
+        window?.makeKeyAndVisible()
+        
+    }
+    
+    func defineNavigationBarStyle(isOnboardingContext: Bool) {
+        if isOnboardingContext {
+            // define navigation bar style
+            UINavigationBar.appearance().barTintColor = UIColor.tint
+            UINavigationBar.appearance().tintColor = UIColor.white
+            
+            UINavigationBar.appearance().titleTextAttributes = [
+                NSAttributedStringKey.foregroundColor: UIColor.white,
+                NSAttributedStringKey.font: UIFont.font(from: .header)
+            ]
+            
+            UIBarButtonItem.appearance().setTitleTextAttributes([
+                NSAttributedStringKey.font: UIFont.font(from: .action)
+                ], for: [.normal, .highlighted, .selected, .disabled])
+            
+            UINavigationBar.appearance().largeTitleTextAttributes = [
+                NSAttributedStringKey.font: UIFont.font(from: .largeTitle),
+                NSAttributedStringKey.foregroundColor: UIColor.white
+            ]
+        }else {
+            let textColor = UIColor.primary
+            // define navigation bar style
+            UINavigationBar.appearance().barTintColor = UIColor.white
+            UINavigationBar.appearance().tintColor = textColor
+            
+            UINavigationBar.appearance().titleTextAttributes = [
+                NSAttributedStringKey.foregroundColor: textColor,
+                NSAttributedStringKey.font: UIFont.font(from: .header)
+            ]
+            
+            UIBarButtonItem.appearance().setTitleTextAttributes([
+                NSAttributedStringKey.font: UIFont.font(from: .action)
+                ], for: [.normal, .highlighted, .selected, .disabled])
+            
+            UINavigationBar.appearance().largeTitleTextAttributes = [
+                NSAttributedStringKey.font: UIFont.font(from: .largeTitle),
+                NSAttributedStringKey.foregroundColor: textColor
+            ]
+        }
+    }
 }
 

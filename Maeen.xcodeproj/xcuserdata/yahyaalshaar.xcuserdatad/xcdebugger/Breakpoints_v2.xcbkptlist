@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Maeen/OnBoarding/Controller/PhoneNumberViewController.swift"
+            timestampString = "554320404.2434551"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "didSelectItemAt(index:with:andValue:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Maeen.PhoneNumberViewController.didSelectItemAt(index: Swift.Int, with: Swift.Int, andValue: Swift.String) -&gt; ()"
+                  moduleName = "Maeen"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yahyaalshaar/Library/Autosave%20Information/Maeen/Maeen/OnBoarding/Controller/PhoneNumberViewController.swift"
+                  timestampString = "561970866.885452"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "46">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String, Swift.String) -&gt; Swift.Bool in Maeen.PhoneNumberViewController.didSelectItemAt(index: Swift.Int, with: Swift.Int, andValue: Swift.String) -&gt; ()"
+                  moduleName = "Maeen"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yahyaalshaar/Library/Autosave%20Information/Maeen/Maeen/OnBoarding/Controller/PhoneNumberViewController.swift"
+                  timestampString = "561970866.887015"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "59">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Maeen/OnBoarding/Controller/PhoneNumberViewController.swift"
+            timestampString = "554320404.243504"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "didSelectItemAt(index:with:andValue:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
