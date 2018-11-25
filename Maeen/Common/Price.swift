@@ -11,10 +11,11 @@ import Foundation
 typealias Price = Double
 
 extension Price {
-    var localized: String? {
+    func localized(locale: Locale? = Locale.current) -> String? {
+        
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
-        formatter.locale = NSLocale.current
+        formatter.locale = locale
         
         return formatter.string(from: NSNumber(value: self))
     }

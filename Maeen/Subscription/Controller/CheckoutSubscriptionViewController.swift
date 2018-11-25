@@ -59,7 +59,7 @@ class CheckoutSubscriptionViewController: UIViewController {
         if segue.identifier == "ChildsSegue" {
             let vc = segue.destination as! ChildSelectionViewController
             vc.delegate = self
-//            vc.tableView.isScrollEnabled = false
+            vc.tableView.isScrollEnabled = false
             
             childSelectionVC = vc
             
@@ -67,7 +67,7 @@ class CheckoutSubscriptionViewController: UIViewController {
             vc.view.clipsToBounds = true
         }else if segue.identifier == "PaymentSegue" {
             let vc = segue.destination as! PaymentTableViewController
-//            vc.tableView.isScrollEnabled = false
+            vc.tableView.isScrollEnabled = false
             vc.delegate = self
             
             paymentVC = vc

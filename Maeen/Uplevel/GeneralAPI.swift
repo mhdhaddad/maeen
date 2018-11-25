@@ -13,7 +13,8 @@ import Alamofire
 typealias NetworkFailureCompletion = ((Error) -> Swift.Void)
 protocol ConsultationAPI {
     func consultationReplies(context: NSManagedObjectContext?, consultationId: Int32, success: @escaping (([ConsultationReply]) -> Swift.Void), failure: @escaping NetworkFailureCompletion)
-    func addConsultationReply(message: String, consultationId: Int32, childId: Int32, context: NSManagedObjectContext?,success: @escaping ((ConsultationReply) -> Swift.Void), failure: @escaping NetworkFailureCompletion)
+    func addConsultationReply(message: String, consultationId: Int32, context: NSManagedObjectContext?,success: @escaping ((ConsultationReply) -> Swift.Void), failure: @escaping NetworkFailureCompletion)
+    func addConsultation(message: String, title: String, childId:Int32, context: NSManagedObjectContext?, success: @escaping ((Consultation) -> Swift.Void), failure: @escaping NetworkFailureCompletion)
 }
 
 protocol AccountAPI {
@@ -29,7 +30,7 @@ protocol AccountAPI {
 protocol CheckoutAPI {
     func subsecriptionInformation(packageId: Int32, gateway: String, childIds: [Int32], success: @escaping (([AnyHashable: Any]) -> Swift.Void), failure: @escaping NetworkFailureCompletion)
     func subscribe(packageId: Int32, childIds: [Int32], gateway: String, success: @escaping ((Gateway) -> Swift.Void), failure: @escaping NetworkFailureCompletion)
-    func paymentInformation(trackId: Int32, success: @escaping ((Payment) -> Swift.Void), failure: @escaping NetworkFailureCompletion)
+    func paymentInformation(trackId: String, success: @escaping ((Payment) -> Swift.Void), failure: @escaping NetworkFailureCompletion)
 }
 protocol IndexAPI {
     func advices(context: NSManagedObjectContext?, success: @escaping (([Advice], MetaResponseContext) -> Swift.Void), failure: @escaping NetworkFailureCompletion)

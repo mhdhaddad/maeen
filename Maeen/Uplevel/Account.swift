@@ -70,8 +70,12 @@ class Account {
             try moc.execute(deleteChildren)
             try moc.execute(deleteConsultations)
             try moc.execute(deleteAdvices)
-        }catch {
             
+            moc.processPendingChanges()
+        }catch let error {
+            print(error)
         }
+        
+        
     }
 }

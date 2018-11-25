@@ -22,7 +22,7 @@ class ChildsViewController: UICollectionViewController {
         request.fetchBatchSize = 25
         
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: app.handler.moc, sectionNameKeyPath: nil, cacheName: nil)
-//        fetchedResultsController.delegate = self
+        fetchedResultsController.delegate = self
         
         do {
             try fetchedResultsController.performFetch()
@@ -128,57 +128,57 @@ extension ChildsViewController: UICollectionViewDelegateFlowLayout {
 }
 extension ChildsViewController: NSFetchedResultsControllerDelegate {
     
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        
-        if type == NSFetchedResultsChangeType.insert {
-            collectionView!.insertItems(at: [newIndexPath!])
-//            if (collectionView?.numberOfSections)! > 0 {
-//
-//                if collectionView?.numberOfItems( inSection: newIndexPath!.section ) == 0 {
-//                    self.shouldReloadCollectionView = true
-//                } else {
-//                    collectionView!.insertItems(at: [newIndexPath!])
-//                }
-//
-//            } else {
-//                self.shouldReloadCollectionView = true
-//            }
-        }
-        else if type == NSFetchedResultsChangeType.update {
-            
-            collectionView!.reloadItems(at: [indexPath!])
-        }
-        else if type == NSFetchedResultsChangeType.move {
-            
-            collectionView!.moveItem(at: indexPath!, to: newIndexPath!)
-        }
-        else if type == NSFetchedResultsChangeType.delete {
-            
-//            if collectionView?.numberOfItems( inSection: indexPath!.section ) == 1 {
-//                self.shouldReloadCollectionView = true
-//            } else {
-                collectionView!.deleteItems(at: [indexPath!])
-//            }
-        }
-    }
-    
-    public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-        if type == NSFetchedResultsChangeType.insert {
-            print("Insert Section: \(sectionIndex)")
-            collectionView!.insertSections(NSIndexSet(index: sectionIndex) as IndexSet)
-        }
-        else if type == NSFetchedResultsChangeType.update {
-            print("Update Section: \(sectionIndex)")
-            collectionView!.reloadSections(NSIndexSet(index: sectionIndex) as IndexSet)
-        }
-        else if type == NSFetchedResultsChangeType.delete {
-            print("Delete Section: \(sectionIndex)")
-            collectionView!.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet)
-        }
-    }
+//    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+//        
+//        if type == NSFetchedResultsChangeType.insert {
+//            collectionView!.insertItems(at: [newIndexPath!])
+////            if (collectionView?.numberOfSections)! > 0 {
+////
+////                if collectionView?.numberOfItems( inSection: newIndexPath!.section ) == 0 {
+////                    self.shouldReloadCollectionView = true
+////                } else {
+////                    collectionView!.insertItems(at: [newIndexPath!])
+////                }
+////
+////            } else {
+////                self.shouldReloadCollectionView = true
+////            }
+//        }
+//        else if type == NSFetchedResultsChangeType.update {
+//            
+//            collectionView!.reloadItems(at: [indexPath!])
+//        }
+//        else if type == NSFetchedResultsChangeType.move {
+//            
+//            collectionView!.moveItem(at: indexPath!, to: newIndexPath!)
+//        }
+//        else if type == NSFetchedResultsChangeType.delete {
+//            
+////            if collectionView?.numberOfItems( inSection: indexPath!.section ) == 1 {
+////                self.shouldReloadCollectionView = true
+////            } else {
+//                collectionView!.deleteItems(at: [indexPath!])
+////            }
+//        }
+//    }
+//    
+//    public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+//        if type == NSFetchedResultsChangeType.insert {
+//            print("Insert Section: \(sectionIndex)")
+//            collectionView!.insertSections(NSIndexSet(index: sectionIndex) as IndexSet)
+//        }
+//        else if type == NSFetchedResultsChangeType.update {
+//            print("Update Section: \(sectionIndex)")
+//            collectionView!.reloadSections(NSIndexSet(index: sectionIndex) as IndexSet)
+//        }
+//        else if type == NSFetchedResultsChangeType.delete {
+//            print("Delete Section: \(sectionIndex)")
+//            collectionView!.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet)
+//        }
+//    }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        
+        collectionView?.reloadData()
         // Checks if we should reload the collection view to fix a bug @ http://openradar.appspot.com/12954582
 //        if (self.shouldReloadCollectionView) {
 //            DispatchQueue.main.async {

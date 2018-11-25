@@ -27,8 +27,8 @@ struct ProfileComponent {
 extension ProfileComponent {
     static var components: [ProfileComponent] {
         return [
-            ProfileComponent(icon: #imageLiteral(resourceName: "profileIcon").withRenderingMode(.alwaysTemplate), kind: .personal),
-            ProfileComponent(icon: #imageLiteral(resourceName: "emailIcon").withRenderingMode(.alwaysTemplate), kind: .communication),
+//            ProfileComponent(icon: #imageLiteral(resourceName: "profileIcon").withRenderingMode(.alwaysTemplate), kind: .personal),
+//            ProfileComponent(icon: #imageLiteral(resourceName: "emailIcon").withRenderingMode(.alwaysTemplate), kind: .communication),
             ProfileComponent(icon: #imageLiteral(resourceName: "passwordIcon").withRenderingMode(.alwaysTemplate), kind: .password),
             ProfileComponent(icon: #imageLiteral(resourceName: "technicalSupportIcon"), kind: .support),
             ProfileComponent(icon: #imageLiteral(resourceName: "signOutIcon"), kind: .signOut)

@@ -15,21 +15,27 @@ class ProfileTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        lblTitle.font = UIFont(name: AdirBold, size: 13)!
+        lblValue.font = UIFont(name: AdirMeduim, size: 13)!
+        
         lblTitle.textColor = UIColor.tint
         lblValue.textColor = UIColor.secondary
         roundedView.layer.cornerRadius = 8
-        
+        selectionStyle = .none
     }
+    
     var title: String? {
         didSet {
             lblTitle.text = title
         }
     }
+    
     var value: String? {
         didSet {
             lblValue.text = value
         }
     }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

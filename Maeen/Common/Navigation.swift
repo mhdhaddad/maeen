@@ -43,6 +43,9 @@ class Navigation {
         return main.instantiateInitialViewController()!
     }
     
+    class func consualtation() {
+        
+    }
 }
 extension Navigation /** +storyboard */ {
     fileprivate class var welcoming: UIStoryboard {

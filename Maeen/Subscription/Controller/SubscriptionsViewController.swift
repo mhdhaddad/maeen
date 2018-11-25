@@ -43,8 +43,6 @@ class SubscriptionsViewController: UIViewController {
 
         title = "subscriptions".localized()
         
-        let user = app.account.user
-        
         lblAdvicesCount.font = UIFont.font(from: .title2)
         lblChildrenCount.font = UIFont.font(from: .title2)
         lblConsultationCount.font = UIFont.font(from: .title2)
@@ -53,11 +51,6 @@ class SubscriptionsViewController: UIViewController {
         lblConsultationCount.textColor = UIColor.white
         lblChildrenCount.textColor = UIColor.white
         lblAdvicesCount.textColor = UIColor.white
-        
-        
-        lblAdvicesCount.text = user?.displayedAdvicesCount
-        lblConsultationCount.text = user?.displayedConsulatationsCount
-        lblChildrenCount.text = user?.displayedChildrenCount
         
         btnPackages.tintColor = UIColor.white
         btnPackages.layer.backgroundColor = UIColor.tintOrange.cgColor
@@ -68,15 +61,26 @@ class SubscriptionsViewController: UIViewController {
         btnPackages.setTitle("packages".localized(), for: .normal)
         btnPackages.setImage(#imageLiteral(resourceName: "packagesIcon"), for: .normal)
         btnPackages.imageView?.contentMode = .scaleAspectFit
+        btnPackages.titleLabel?.font = UIFont(name: AdirBold, size: 14)!
         
         btnPaymentLog.setTitle("paymentLog".localized(), for: .normal)
         btnPaymentLog.setImage(#imageLiteral(resourceName: "paymentLogIcon"), for: .normal)
         btnPaymentLog.imageView?.contentMode = .scaleAspectFit
+        btnPaymentLog.titleLabel?.font = UIFont(name: AdirBold, size: 14)!
         
         initializeFetchedResultsController()
         fetchSubscription()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let user = app.account.user
+        
+        lblAdvicesCount.text = user?.displayedAdvicesCount
+        lblConsultationCount.text = user?.displayedConsulatationsCount
+        lblChildrenCount.text = user?.displayedChildrenCount
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -28,7 +28,7 @@ class PaymentConfirmationViewController: UIViewController {
     @IBOutlet weak var dateTitleLabel: UILabel!
     @IBOutlet weak var paymentInformationView: UIView!
     
-    var trackId: Int32!
+    var trackId: String!
     enum StatusKind {
         case success
         case failure

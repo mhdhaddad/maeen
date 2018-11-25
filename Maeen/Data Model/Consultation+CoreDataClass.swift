@@ -49,25 +49,40 @@ public class Consultation: HomeContainer {
         
         return TimeLocalization.since(date: date)
     }
+    
+    var messages: [ConsultationReply] {
+        let fetch: NSFetchRequest<ConsultationReply> = ConsultationReply.fetchRequest()
+        fetch.predicate = NSPredicate(format: "consultationId == %i", id)
+        
+        do {
+            return try app.handler.moc.fetch(fetch)
+        }catch let error {
+            print(error)
+            return []
+        }
+    }
 }
 
 extension Consultation /** +attributes */ {
     convenience init?(attributes: [AnyHashable: Any], insertInto context: NSManagedObjectContext?) {
-        guard let id = attributes["id"] as? Int32, let adviceId = attributes["advice_id"] as? Int32, let childId = attributes["child_id"] as? Int32 else {
+        guard let id = attributes["id"] as? Int32, let childId = attributes["child_id"] as? Int32 else {
             return nil
         }
         
         self.init(insertInto: context)
         
         self.id = id
-        self.adviceId = adviceId
+        
+        
         self.childId = childId
+        
+        if let adviceId = attributes["advice_id"] as? Int32 {
+            self.adviceId = adviceId
+        }
         
         if let title = attributes["title"] as? String {
             self.title = title
         }
-        
-        
         
         if let snippet = attributes["snippet"] as? String {
             self.snippet = snippet
@@ -76,6 +91,11 @@ extension Consultation /** +attributes */ {
         if let createdAtRaw = attributes["created_at"] as? String {
             
             self.createdAt = DateFormatter.standard.date(from: createdAtRaw)
+        }
+        
+        for messageAttributes in attributes["message"] as? [[AnyHashable: AnyHashable]] ?? [] {
+            let c = ConsultationReply(attributes: messageAttributes, insertInto: context)
+            c?.id
         }
     }
 }

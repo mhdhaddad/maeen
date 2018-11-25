@@ -56,7 +56,7 @@ class ChangePasswordViewController: UIViewController {
         indicator.textLabel.text = "loading".localized()
         indicator.show(in: self.view)
         
-        Lookup.shared.resetPassword(current: oldPasswordTitleLabel.text!, new: newPasswordTextField.text!, confirmed: confirmationPasswordTextField.text!, success: { [weak self] in
+        Lookup.shared.resetPassword(current: oldPasswordTextField.text!, new: newPasswordTextField.text!, confirmed: confirmationPasswordTextField.text!, success: { [weak self] in
             
             UIView.animate(withDuration: 0.1, animations: {
                 indicator.textLabel.text = "successfullySent".localized()

@@ -112,7 +112,8 @@ class ProfileTableViewController: UITableViewController {
     
     // MARK: - Table view delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 4 {
+        
+        if indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
             app.account.signOut()
              (UIApplication.shared.delegate as? AppDelegate)?.makeRoot(viewController: Navigation.welcome())
         }

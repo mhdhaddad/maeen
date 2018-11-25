@@ -143,12 +143,26 @@ extension AppDelegate {
             
             UIBarButtonItem.appearance().setTitleTextAttributes([
                 NSAttributedStringKey.font: UIFont.font(from: .action)
-                ], for: [.normal, .highlighted, .selected, .disabled])
+                ], for: .normal)
+            
+            UIBarButtonItem.appearance().setTitleTextAttributes([
+                NSAttributedStringKey.font: UIFont.font(from: .action)
+                ], for: .selected)
+            
+            UIBarButtonItem.appearance().setTitleTextAttributes([
+                NSAttributedStringKey.font: UIFont.font(from: .action)
+                ], for: .highlighted)
+            
+            UIBarButtonItem.appearance().setTitleTextAttributes([
+                NSAttributedStringKey.font: UIFont.font(from: .action)
+                ], for: .disabled)
             
             UINavigationBar.appearance().largeTitleTextAttributes = [
                 NSAttributedStringKey.font: UIFont.font(from: .largeTitle),
                 NSAttributedStringKey.foregroundColor: textColor
             ]
+            
+            
         }
     }
 }

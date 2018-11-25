@@ -20,11 +20,13 @@ class PaymentGatewayViewController: UIViewController {
     var childIds: [Int32] = []
     var gateway: String!
     
+    var receivedGateway: Gateway?
     var isSuccessfulPayment = false
     override func viewDidLoad() {
         super.viewDidLoad()
         toggleIndicatorView(withMessage: "loading".localized(), animating: true)
         Lookup.shared.subscribe(packageId: packageId, childIds: childIds, gateway: gateway, success: { [weak self] (gateway) in
+            self?.receivedGateway = gateway
             
             let request = URLRequest(url: gateway.url)
             
@@ -61,6 +63,9 @@ class PaymentGatewayViewController: UIViewController {
         if segue.identifier == "PaymentConfirmation" {
             let vc = segue.destination as! PaymentConfirmationViewController
             vc.status = isSuccessfulPayment ? PaymentConfirmationViewController.StatusKind.success: PaymentConfirmationViewController.StatusKind.failure
+            if let trackId = receivedGateway?.trackId {
+                vc.trackId = trackId
+            }
         }
     }
     

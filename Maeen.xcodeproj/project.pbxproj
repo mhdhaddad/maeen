@@ -77,7 +77,6 @@
 		D58C0B77215FF98500116BAA /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58C0B76215FF98500116BAA /* TextFieldTableViewCell.swift */; };
 		D5A1F3F720B4CFF4009505BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A1F3F620B4CFF4009505BD /* AppDelegate.swift */; };
 		D5A1F3F920B4CFF4009505BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A1F3F820B4CFF4009505BD /* ViewController.swift */; };
-		D5A1F3FF20B4CFF4009505BD /* Maeen.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D5A1F3FD20B4CFF4009505BD /* Maeen.xcdatamodeld */; };
 		D5A1F40120B4CFF6009505BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5A1F40020B4CFF6009505BD /* Assets.xcassets */; };
 		D5A1F40F20B4CFF6009505BD /* MaeenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A1F40E20B4CFF6009505BD /* MaeenTests.swift */; };
 		D5A1F41A20B4CFF6009505BD /* MaeenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A1F41920B4CFF6009505BD /* MaeenUITests.swift */; };
@@ -134,6 +133,8 @@
 		D5DE41E620CC485A00C29FFF /* ChildHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DE41E520CC485A00C29FFF /* ChildHeaderView.swift */; };
 		D5DE41E820CC4E4200C29FFF /* EntryChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DE41E720CC4E4200C29FFF /* EntryChildViewController.swift */; };
 		D5DE41EA20CC553900C29FFF /* VerifyPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DE41E920CC553900C29FFF /* VerifyPhoneNumberViewController.swift */; };
+		D5E964DE21978F97005A6EA5 /* EmptyStautsFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E964DD21978F97005A6EA5 /* EmptyStautsFooterView.swift */; };
+		D5E964E021978FAF005A6EA5 /* EmptyStautsFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5E964DF21978FAF005A6EA5 /* EmptyStautsFooterView.xib */; };
 		D5EAA5272145AD5D00EBC401 /* Paymentitem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EAA5262145AD5D00EBC401 /* Paymentitem.swift */; };
 		D5EAA5292145B73300EBC401 /* CheckoutSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EAA5282145B73300EBC401 /* CheckoutSubscriptionViewController.swift */; };
 		D5EAA52B2145DA2700EBC401 /* ChildSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EAA52A2145DA2700EBC401 /* ChildSelectionViewController.swift */; };
@@ -241,7 +242,6 @@
 		D5A1F3F320B4CFF4009505BD /* Maeen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maeen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5A1F3F620B4CFF4009505BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5A1F3F820B4CFF4009505BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D5A1F3FE20B4CFF4009505BD /* Maeen.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Maeen.xcdatamodel; sourceTree = "<group>"; };
 		D5A1F40020B4CFF6009505BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D5A1F40520B4CFF6009505BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5A1F40A20B4CFF6009505BD /* MaeenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaeenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -303,6 +303,8 @@
 		D5DE41E520CC485A00C29FFF /* ChildHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildHeaderView.swift; sourceTree = "<group>"; };
 		D5DE41E720CC4E4200C29FFF /* EntryChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryChildViewController.swift; sourceTree = "<group>"; };
 		D5DE41E920CC553900C29FFF /* VerifyPhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPhoneNumberViewController.swift; sourceTree = "<group>"; };
+		D5E964DD21978F97005A6EA5 /* EmptyStautsFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStautsFooterView.swift; sourceTree = "<group>"; };
+		D5E964DF21978FAF005A6EA5 /* EmptyStautsFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyStautsFooterView.xib; sourceTree = "<group>"; };
 		D5E99C1620FA95280069EE40 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D5EAA5262145AD5D00EBC401 /* Paymentitem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paymentitem.swift; sourceTree = "<group>"; };
 		D5EAA5282145B73300EBC401 /* CheckoutSubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutSubscriptionViewController.swift; sourceTree = "<group>"; };
@@ -523,6 +525,8 @@
 		D57F954F2108FE5200CE2B41 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D5E964DD21978F97005A6EA5 /* EmptyStautsFooterView.swift */,
+				D5E964DF21978FAF005A6EA5 /* EmptyStautsFooterView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -623,7 +627,6 @@
 				D5A1F3F620B4CFF4009505BD /* AppDelegate.swift */,
 				D5A1F40020B4CFF6009505BD /* Assets.xcassets */,
 				D5A1F40520B4CFF6009505BD /* Info.plist */,
-				D5A1F3FD20B4CFF4009505BD /* Maeen.xcdatamodeld */,
 			);
 			path = Maeen;
 			sourceTree = "<group>";
@@ -988,6 +991,7 @@
 				D5BB732B20FA440B00A39512 /* DUBAI-BOLD.OTF in Resources */,
 				D5A1F40120B4CFF6009505BD /* Assets.xcassets in Resources */,
 				D581E13220F1D71100FB4D70 /* OBTextField.xib in Resources */,
+				D5E964E021978FAF005A6EA5 /* EmptyStautsFooterView.xib in Resources */,
 				D5A1F47820B631A2009505BD /* TextFieldEntryItemCell.xib in Resources */,
 				D5200621215D85750098B453 /* Adir-Bold.OTF in Resources */,
 				D5DE41E420CC47B900C29FFF /* ChildHeaderView.xib in Resources */,
@@ -1161,6 +1165,7 @@
 				D5B12E232144B91F00014FFE /* PaymentTableViewController.swift in Sources */,
 				D5F9A93D2158E62C00B53682 /* ChangePasswordViewController.swift in Sources */,
 				D50E28CB21165BC900CD569B /* ConsultationCollectionTableViewCell.swift in Sources */,
+				D5E964DE21978F97005A6EA5 /* EmptyStautsFooterView.swift in Sources */,
 				D575A65620F0FB0000FF475A /* SignInViewController.swift in Sources */,
 				D5A5838821068AC300E21102 /* Child+CoreDataClass.swift in Sources */,
 				D5814490210799D000A33C7A /* Consultation+CoreDataClass.swift in Sources */,
@@ -1231,7 +1236,6 @@
 				D5F8F936210335C5002C271E /* ForgotPasswordViewController.swift in Sources */,
 				D5A1F48220BA2A7E009505BD /* Navigation.swift in Sources */,
 				D58C0B77215FF98500116BAA /* TextFieldTableViewCell.swift in Sources */,
-				D5A1F3FF20B4CFF4009505BD /* Maeen.xcdatamodeld in Sources */,
 				D5F214412168FA20001E8BFC /* ChildEntryTableViewController.swift in Sources */,
 				D5B65FA5210A15700092ADDD /* AdviceTableViewController.swift in Sources */,
 				D5A1F3F720B4CFF4009505BD /* AppDelegate.swift in Sources */,
@@ -1572,16 +1576,6 @@
 			);
 			currentVersion = D5540A022104454E007DE86F /* Maeen.xcdatamodel */;
 			path = Model.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		D5A1F3FD20B4CFF4009505BD /* Maeen.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				D5A1F3FE20B4CFF4009505BD /* Maeen.xcdatamodel */,
-			);
-			currentVersion = D5A1F3FE20B4CFF4009505BD /* Maeen.xcdatamodel */;
-			path = Maeen.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

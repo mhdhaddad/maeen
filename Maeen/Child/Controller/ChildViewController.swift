@@ -23,15 +23,22 @@ class ChildViewController: UIViewController {
     @IBOutlet weak var consultationsContainerView: UIView!
     @IBOutlet weak var profileContainerView: UIView!
     
+    @IBOutlet weak var rightBarButtonItem: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "childs".localized()
         
+        
+        rightBarButtonItem.title = "addConsultation".localized()
+        
         // style
         lblChildName.textColor = UIColor.tint
+        lblChildName.font = UIFont.font(from: .title2)
+        
         lblChildAge.textColor = UIColor.secondary
+        lblChildAge.font = UIFont.font(from: .subTitle1)
         
         lblEducationalValues.textColor = UIColor.white
         lblConsultations.textColor = UIColor.white
@@ -47,8 +54,12 @@ class ChildViewController: UIViewController {
         lblChildName.text = child.name
         
         lblConsultations.text = child.displayedConsulatationsCount
-        lblEducationalValues.text = child.displayedAdvicesCount
+        lblConsultations.font = UIFont.font(from: .subTitle1)
         
+        lblEducationalValues.text = child.displayedAdvicesCount
+        lblEducationalValues.font = UIFont.font(from: .subTitle1)
+        
+        segment.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.font(from: .subTitle1)], for: .normal)
         segment.setTitle("advices".localized(), forSegmentAt: 0)
         segment.setTitle("consultations".localized(), forSegmentAt: 1)
         segment.setTitle("profile".localized(), forSegmentAt: 2)
@@ -94,12 +105,62 @@ class ChildViewController: UIViewController {
         }else if segue.identifier == "EmbedChildProfile" {
             let vc = segue.destination as! ChildProfileTableViewController
             vc.child = child
+        }else if segue.identifier == "AddConsultation" {
+            let vc = segue.destination as! ConsultationDetailsViweController
+        
+            vc.title = consultationTitleTextField?.text
+            vc.childId = child.id
+            
+        }else if segue.identifier == "EmbedConsultations" {
+            let vc = segue.destination as! ConsultationTableViewController
+            vc.childId = child.id
         }
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
     
 
+    @IBAction func addConsultationButton_TouchUpInside(_ sender: UIBarButtonItem) {
+        self.present(createConsultationAlert, animated: true, completion: nil)
+    }
+    
+    // MARK: - TextFiled + AlertView
+    
+    
+    var consultationTitleTextField: UITextField?
+    
+    func configurationTextField(textField: UITextField!) {
+        if (textField) != nil {
+            self.consultationTitleTextField = textField!
+            self.consultationTitleTextField?.placeholder = "title".localized();
+            self.consultationTitleTextField?.addTarget(self, action: #selector(consultationTitleTextField_EditingChanged(sender:)), for: .editingChanged)
+        }
+    }
+    
+    @objc func consultationTitleTextField_EditingChanged(sender: UITextField) {
+        okActionForAddConsultation.isEnabled = sender.text?.isEmpty == false
+    }
+    
+    lazy var okActionForAddConsultation: UIAlertAction = {
+        let action = UIAlertAction(title: "create".localized(), style: .default, handler:{ (UIAlertAction) in
+            self.performSegue(withIdentifier: "AddConsultation", sender: self)
+        })
+        
+        return action
+    }()
+    
+    lazy var createConsultationAlert: UIAlertController! = {
+        let alert = UIAlertController(title: "newConsultation".localized(), message: "enter a name for this consultation".localized(), preferredStyle: UIAlertControllerStyle.alert)
+        alert.addTextField(configurationHandler: configurationTextField)
+        alert.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel, handler:nil))
+        
+        
+        let okAction = okActionForAddConsultation
+        okAction.isEnabled = false
+        
+        alert.addAction(okAction)
+        
+        return alert
+    }()
+    
 }
 extension ChildViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {

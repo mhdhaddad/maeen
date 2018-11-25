@@ -16,8 +16,8 @@ class ChildProfileTableViewController: UITableViewController {
         case dateOfBirth = 0
         case sex = 1
         case relationship = 2
-        case nationnality = 3
-        case siblings = 4
+//        case nationnality = 3
+        case siblings = 3
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,17 +57,13 @@ class ChildProfileTableViewController: UITableViewController {
         case .relationship:
             cell.title = "relationship".localized()
             cell.value = child.relationship
-        case .nationnality:
-            cell.title = "nationaality".localized()
-            cell.value = child.nationality
+//        case .nationnality:
+//            cell.title = "nationaality".localized()
+//            cell.value = child.nationality
         case .siblings:
             cell.title = "siblings".localized()
             cell.value = "\(child.siblings)"
         }
-        
-        
-
-        
 
         return cell
     }

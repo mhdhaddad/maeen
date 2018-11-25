@@ -12,14 +12,19 @@ import CoreData
 
 class ConsultationDetailsViweController: MessagesViewController {
     
-    let _currentSender = Sender(id: "afsaf", displayName: "Yahya")
-    var consultation: Consultation!
+    
+    var childId: Int32!
+    
+    let _currentSender = Sender(id: "\(app.account.user!.id)", displayName: "you".localized())
+    var consultation: Consultation?
     
     var fetchedResultsController: NSFetchedResultsController<ConsultationReply>!
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = consultation.title
         
+        if title == nil {
+            title = consultation?.title
+        }
         // setup
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
@@ -28,19 +33,27 @@ class ConsultationDetailsViweController: MessagesViewController {
         messageInputBar.sendButton.tintColor = UIColor.tint
         
         iMessage()
-        initializeFetchedResultsController()
         
-        Lookup.shared.consultationReplies(context: app.handler.moc, consultationId: consultation.id, success: { (replies) in
-            print("\(replies.count)")
-            try? app.handler.moc.save()
-//            self.messagesCollectionView.reloadData()
-            self.messagesCollectionView.scrollToBottom()
-        }) { (error) in
+        if let consultation = consultation {
             
+            initializeFetchedResultsController(consultation: consultation)
+            
+            Lookup.shared.consultationReplies(context: app.handler.moc, consultationId: consultation.id, success: { (replies) in
+                print("\(replies.count)")
+                try? app.handler.moc.save()
+
+                self.messagesCollectionView.scrollToBottom()
+            }) { (error) in
+                
+            }
         }
     }
     
-    func initializeFetchedResultsController() {
+    func initializeFetchedResultsController(consultation: Consultation) {
+        if self.consultation == nil {
+            self.consultation = consultation
+        }
+        
         let request: NSFetchRequest<ConsultationReply> = ConsultationReply.fetchRequest()
         let sort = NSSortDescriptor(key: "createdAt", ascending: true)
         
@@ -50,7 +63,7 @@ class ConsultationDetailsViweController: MessagesViewController {
         
         let moc = app.handler.moc
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
-//        fetchedResultsController.delegate = self
+        fetchedResultsController.delegate = self
         
         do {
             try fetchedResultsController.performFetch()
@@ -136,6 +149,30 @@ class ConsultationDetailsViweController: MessagesViewController {
 //        ]
 //    }
     
+    func createConsultation(message: String, title: String, childId: Int32) {
+        Lookup.shared.addConsultation(message: message, title: title, childId: childId, context: app.handler.moc, success: { [weak self] (consultation) in
+            try! consultation.messages.first?.managedObjectContext?.save()
+            
+            guard let `self` = self else {
+                return
+            }
+            
+            if self.consultation == nil {
+                self.initializeFetchedResultsController(consultation: consultation)
+                self.messagesCollectionView.reloadData()
+            }
+        }) { (error) in
+            
+        }
+    }
+    
+    func addReply(_ message: String, for consultation: Consultation){
+        Lookup.shared.addConsultationReply(message: message, consultationId: consultation.id, context: app.handler.moc, success: {[weak self] (reply) in
+        
+        }) { (error) in
+            //Handle Error
+        }
+    }
 }
 
 extension ConsultationDetailsViweController: MessagesDataSource {
@@ -145,7 +182,7 @@ extension ConsultationDetailsViweController: MessagesDataSource {
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return fetchedResultsController.sections?[0].numberOfObjects ?? 0
+        return fetchedResultsController?.sections?[0].numberOfObjects ?? 0
     }
     func currentSender() -> Sender {
         return _currentSender
@@ -216,13 +253,13 @@ extension ConsultationDetailsViweController: MessageInputBarDelegate {
                 
                 let attributedText = NSAttributedString(string: text, attributes: [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: UIColor.blue])
                 
-                Lookup.shared.addConsultationReply(message: text, consultationId: consultation.id, childId: consultation.childId, context: app.handler.moc, success: { (reply) in
-                    // Done
-                }) { (error) in
-                    //Handle Error
+                if let consultation = consultation {
+                    addReply(text, for: consultation)
+                }else {
+                    createConsultation(message: text, title: title ?? "consultation".localized(), childId: childId)
                 }
-            }
             
+            }
         }
         
         inputBar.inputTextView.text = String()
@@ -231,45 +268,8 @@ extension ConsultationDetailsViweController: MessageInputBarDelegate {
 
 }
 extension ConsultationDetailsViweController: NSFetchedResultsControllerDelegate {
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        
-//        UIView.setAnimationsEnabled(false)
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-        switch type {
-        case .insert:
-            break
-        case .delete:
-            break
-        case .move:
-            break
-        case .update:
-            break
-        }
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        switch type {
-        case .insert:
-            
-             messagesCollectionView.insertSections([indexPath?.row ?? 0])
-        case .delete:
-            if indexPath != nil {
-             messagesCollectionView.deleteSections([indexPath!.row])
-            }
-        case .update:
-            break
-            
-        //                    tableView.reloadRows(at: [indexPath!], with: .none)
-        case .move:
-            break
-//            messagesCollectionView.moveSection(<#T##section: Int##Int#>, toSection: <#T##Int#>)
-        }
-    }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        
-//        UIView.setAnimationsEnabled(true)
+        messagesCollectionView.reloadData()
     }
 }

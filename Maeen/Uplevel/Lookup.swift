@@ -40,9 +40,15 @@ class Lookup {
     
 }
 extension Lookup: ConsultationAPI {
-    func addConsultationReply(message: String, consultationId: Int32, childId: Int32, context: NSManagedObjectContext?,success: @escaping ((ConsultationReply) -> Void), failure: @escaping ((Error) -> Void)) {
+    func addConsultationReply(message: String, consultationId: Int32, context: NSManagedObjectContext?, success: @escaping ((ConsultationReply) -> Void), failure: @escaping NetworkFailureCompletion) {
         
-        Alamofire.request(Lookup.create(path: "consultation"), method: .post, parameters: nil, encoding: JSONEncoding(options: []), headers: Lookup.headers).validate().responseJSON { (response) in
+        let parameters: Parameters = [
+            "message": message,
+            "consultation_id": consultationId
+        ]
+        
+        
+        Alamofire.request(Lookup.create(path: "consultation/reply"), method: .post, parameters: parameters, encoding: JSONEncoding(options: []), headers: Lookup.headers).validate().responseJSON { (response) in
             switch response.result {
             case .success(let value):
                 guard let attributes = value as? [AnyHashable: Any], let reply = ConsultationReply(attributes: attributes, insertInto: context) else {
@@ -53,7 +59,28 @@ extension Lookup: ConsultationAPI {
                 failure(error)
             }
         }
+    }
+    
+    func addConsultation(message: String, title: String, childId: Int32, context: NSManagedObjectContext?, success: @escaping ((Consultation) -> Void), failure: @escaping NetworkFailureCompletion) {
         
+        let parameters: Parameters = [
+            "title": title,
+            "message": message,
+            "child_id": childId
+        ]
+
+        
+        Alamofire.request(Lookup.create(path: "consultation/create"), method: .post, parameters: parameters, encoding: JSONEncoding(options: []), headers: Lookup.headers).validate().responseJSON { (response) in
+            switch response.result {
+            case .success(let value):
+                guard let attributes = value as? [AnyHashable: Any], let reply = Consultation(attributes: attributes, insertInto: context) else {
+                    return
+                }
+                success(reply)
+            case .failure(let error):
+                failure(error)
+            }
+        }
     }
     
     func consultationReplies(context: NSManagedObjectContext?, consultationId: Int32, success: @escaping (([ConsultationReply]) -> Void), failure: @escaping ((Error) -> Void)) {
@@ -86,7 +113,11 @@ extension Lookup: AccountAPI {
     func contact(subject: String, message: String, success: @escaping (() -> Void), failure: @escaping ((Error) -> Void)) {
         let parameters = [
             "subject": subject,
-            "message": message
+            "message": message,
+            "email": app.account.user?.email ?? "",
+            "phone": app.account.user?.phone ?? "",
+            "full_name": app.account.user?.name ?? ""
+            
         ]
         Alamofire.request(Lookup.create(path: "contact"), method: .post, parameters: parameters, encoding: JSONEncoding(options: []), headers: Lookup.headers).validate().responseJSON { (response) in
             switch response.result {
@@ -104,7 +135,7 @@ extension Lookup: AccountAPI {
             "password_confirmation": confirmed,
             "current_password": current]
         
-        Alamofire.request(Lookup.create(path: "profile/password"), method: .post, parameters: parameters, encoding: JSONEncoding(options: []), headers: Lookup.headers).validate().responseJSON { (response) in
+        Alamofire.request(Lookup.create(path: "profile/password"), method: .post, parameters: parameters, headers: Lookup.headers).validate().responseJSON { (response) in
             switch response.result {
             case .success( _):
                 success()
@@ -349,7 +380,7 @@ extension Lookup: IndexAPI {
     }
 }
 extension Lookup: CheckoutAPI {
-    func paymentInformation(trackId: Int32, success: @escaping ((Payment) -> Void), failure: @escaping NetworkFailureCompletion) {
+    func paymentInformation(trackId: String, success: @escaping ((Payment) -> Void), failure: @escaping NetworkFailureCompletion) {
         Alamofire.request(Lookup.create(path: "subscription/\(trackId)"), method: .get, parameters: nil, encoding: JSONEncoding(options: []), headers: Lookup.headers).validate().responseJSON { (response) in
             switch response.result {
             case .success(let value):

@@ -41,7 +41,8 @@ public class Payment: NSManagedObject {
     }()
     
     var displayedAmount: String {
-        var substring = Substring("\(amount)")
+        let amountString = String(format: "%.2d", amount)
+        var substring = Substring(amountString)
         
         if let currency = currency {
             substring.append(contentsOf: " ")

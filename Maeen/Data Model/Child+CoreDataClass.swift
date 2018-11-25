@@ -50,6 +50,15 @@ public class Child: Person {
     var displayedConsulatationsCount: String {
         return "\(consultationCount)\n\("consultations".localized())"
     }
+    
+//    var attributedConsultationsCount: NSAttributedString {
+//        let attributedString = NSMutableAttributedString()
+        
+//        attributedString.append(NSAttributedString(string: "\(consultationCount)", attributes: [.font: UIFont.from(type: .)]))
+        
+//        return attributedString
+//    }
+    
     var displayedAdvicesCount: String {
         return "\(adviceCount)\n\("receivedAdvices".localized())"
     }

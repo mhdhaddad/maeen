@@ -15,6 +15,11 @@ class HomeHeaderFooterView: UITableViewHeaderFooterView {
     var kind: ViewController.SectionKind!
     
     var delegate: HomeHeaderFooterViewDelegate?
+    var isActionEnabled: Bool! {
+        didSet {
+            btnAction.isHidden = isActionEnabled
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

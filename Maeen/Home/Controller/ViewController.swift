@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 
 class ViewController: UIViewController {
+    var sections: [SectionKind] = [.advices, .consultations]
     var fetchedResultsController: NSFetchedResultsController<HomeContainer>!
     enum SectionKind: String {
         case advices = "adviceSectionTitle"
@@ -30,7 +31,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnWelcome: UIButton!
     
-    var sections: [SectionKind] = [.advices, .consultations]
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +38,7 @@ class ViewController: UIViewController {
         btnWelcome.setTitle("Welcome Sign in | Sign up", for: .normal)
         
         tableView.register(HomeHeaderFooterView.nib, forHeaderFooterViewReuseIdentifier: HomeHeaderFooterView.identifier)
+        tableView.register(EmptyStautsFooterView.nib, forHeaderFooterViewReuseIdentifier: EmptyStautsFooterView.identifier)
         
         initializeFetchedResultsController()
         
@@ -51,27 +52,10 @@ class ViewController: UIViewController {
         }else {
             // sync up with childs
             Lookup.shared.childs(context: app.handler.moc, success: { (childs) in
-//                for child in childs {
-//                    let request: NSFetchRequest<Child> = Child.fetchRequest()
-//
-//                    request.predicate = NSPredicate(format: "id == %i", child.id)
-//
-//                    if try! app.handler.moc.count(for: request as! NSFetchRequest<NSFetchRequestResult>) == 0 {
-//                        child.insert(into: app.handler.moc)
-//                    }
-//                }
                 app.handler.saveContext()
             }) { (error) in
                 
             }
-            
-//            Lookup.shared.advices(context: app.handler.moc, success: { (advices) in
-//                self.advices = advices
-//                app.handler.saveContext()
-//            }) { (error) in
-//                //TODO: handle error
-//            }
-
             
             Lookup.shared.advices(context: app.handler.moc, success: { (advices, context) in
                 app.account.user?.advicesCount = context.total
@@ -86,43 +70,7 @@ class ViewController: UIViewController {
             }) { (error) in
                 //TODO: handle error
             }
-            
-//            Lookup.shared.advices(context: nil, success: { (advices) in
-//                self.advices = advices
-//                for advice in advices {
-//
-//                    let request: NSFetchRequest<Advice> = Advice.fetchRequest()
-//
-//                    request.predicate = NSPredicate(format: "id == %i", advice.id)
-//
-//                    if try! app.handler.moc.count(for: request as! NSFetchRequest<NSFetchRequestResult>) == 0 {
-//                        advice.insert(into: app.handler.moc)
-//                    }
-//
-//                }
-//                app.handler.saveContext()
-//            }) { (error) in
-//                //TODO: handel error
-//            }
-            
-//            Lookup.shared.consultations(success: { (consultations) in
-//                self.consultations = consultations
-//                for consultation in consultations {
-//
-//                    let request: NSFetchRequest<Consultation> = Consultation.fetchRequest()
-//
-//                    request.predicate = NSPredicate(format: "id == %i", consultation.id)
-//
-//                    if try! app.handler.moc.count(for: request as! NSFetchRequest<NSFetchRequestResult>) == 0 {
-//                        consultation.insert(into: app.handler.moc)
-//                    }
-//                }
-//                app.handler.saveContext()
-//            }) { (error) in
-//                //TODO: handle error
-//            }
         }
-     
     }
     
     func initializeFetchedResultsController() {
@@ -136,7 +84,7 @@ class ViewController: UIViewController {
         
         let moc = app.handler.moc
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: "section", cacheName: "Root")
-//        fetchedResultsController.delegate = self
+        fetchedResultsController.delegate = self
         
         do {
             try fetchedResultsController.performFetch()
@@ -171,17 +119,20 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return fetchedResultsController.sections?.count ?? 0
+        return sections.count
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        switch sections[section] {
-//        case .advices:
-//            return advices.count > 0 ? 1: 0
-//        case .consultations:
-//            return consultations.count  > 0 ? 1: 0
-//        }
-        return fetchedResultsController.sections![section].numberOfObjects > 0 ? 1: 0
+        guard let sections = fetchedResultsController.sections else {
+            return 0
+        }
+        
+        guard sections.count > section else {
+            return 0
+        }
+        return sections[section].numberOfObjects > 0 ? 1: 0
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if fetchedResultsController.object(at: indexPath).isKind(of: Advice.self) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AdviceCollectionCell", for: indexPath) as! AdviceCollectionTableViewCell
@@ -192,17 +143,8 @@ extension ViewController: UITableViewDataSource {
             cell.consultations = fetchedResultsController.sections![indexPath.section].objects as! [Consultation]
             return cell
         }
-//        switch sections[indexPath.section] {
-//        case .advices:
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "AdviceCollectionCell", for: indexPath) as! AdviceCollectionTableViewCell
-//            cell.advices = advices
-//            return cell
-//        case .consultations:
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "ConsultationCollectionCell", for: indexPath) as! ConsultationCollectionTableViewCell
-//            cell.consultations = consultations
-//            return cell
-//        }
     }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let kind = sections[section]
         
@@ -210,11 +152,51 @@ extension ViewController: UITableViewDataSource {
         view.lblTitle.text = kind.rawValue.localized()
         view.kind = kind
         view.btnAction.setTitle("seeAll".localized(), for: .normal)
+        
+        view.isActionEnabled = isEmpty(section: section)
         view.delegate = self
         return view
     }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
+        guard isEmpty(section: section) else {
+            return nil
+        }
+        
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: EmptyStautsFooterView.identifier) as! EmptyStautsFooterView
+        
+        switch sections[section] {
+        case .advices:
+            view.message = "emptyAdvicesMessage".localized()
+        case .consultations:
+            view.message = "emptyConsultationsMessage".localized()
+        }
+        
+        return view
+    }
+    
+    func isEmpty(section: Int) -> Bool {
+        var isEmptySection = true
+        
+        if let fetchedSections = fetchedResultsController.sections {
+            if fetchedSections.count > section {
+                if fetchedSections[section].numberOfObjects > 0 {
+                    isEmptySection = false
+                }
+            }
+        }
+        
+        return isEmptySection
+    }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        
+        return isEmpty(section: section) ? 200: 0
     }
 }
 extension ViewController: UITableViewDelegate {
@@ -233,5 +215,40 @@ extension ViewController: HomeHeaderFooterViewDelegate {
     }
 }
 extension ViewController: NSFetchedResultsControllerDelegate {
+//    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+//        tableView.beginUpdates()
+//    }
     
+//    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+//        switch type {
+//        case .insert:
+//            tableView.insertSections(IndexSet(integer: sectionIndex), with: .bottom)
+//        case .delete:
+//            tableView.deleteSections(IndexSet(integer: sectionIndex), with: .top)
+//        case .move:
+//            break
+//        case .update:
+//            break
+//        }
+//    }
+//    
+//    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+//        switch type {
+//        case .insert:
+//            tableView.insertRows(at: [newIndexPath!], with: .bottom)
+//        case .delete:
+//            tableView.deleteRows(at: [indexPath!], with: .top)
+//        case .update:
+//            break
+//            
+//        //            tableView.reloadRows(at: [indexPath!], with: .none)
+//        case .move:
+//            tableView.moveRow(at: indexPath!, to: newIndexPath!)
+//        }
+//    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.reloadData()
+//        tableView.endUpdates()
+    }
 }
